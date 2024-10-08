@@ -1,0 +1,45 @@
+<div class="mainContainer">
+
+    <header>
+        <app-header></app-header>
+    </header>
+
+
+    <main class="mainContainer">
+
+        <h2 class="mainHeadline">
+            Movies, TV shows, and more
+        </h2>
+        <h4  class="mainSmallHeadline">
+            Watch whenever you want wherever you want
+        </h4>
+
+        <div  class="mainEmailSignupButton">
+        <mat-form-field  appearance="outline">
+            <mat-label>Email Adress</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              [formControl]="email"
+              (blur)="updateErrorMessage()"
+              required
+            />
+            @if (email.invalid) {
+              <mat-error>{{errorMessage()}}</mat-error>
+            }
+          </mat-form-field>
+
+        <div class="loginButtonContainer">
+            <button mat-flat-button class="custom-button" routerLink="/sign-up" [queryParams]="{ email: email.value }">
+                Sign Up  
+                <svg  class="mainSVGButton" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+            </button>
+        </div>
+    </div>
+    </main>
+
+
+    <footer>
+<app-footer></app-footer>
+    </footer>
+</div>

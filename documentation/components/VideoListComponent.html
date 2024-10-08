@@ -1,0 +1,1450 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>videoflix-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">videoflix-frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  VideoListComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/video-list/video-list.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-video-list</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>MatButtonModule</code>
+                            <code>RouterModule</code>
+                                <code><a href="../components/HeaderLogoutComponent.html" target="_self" >HeaderLogoutComponent</a></code>
+                            <code>VgCoreModule</code>
+                            <code>VgControlsModule</code>
+                            <code>VgOverlayPlayModule</code>
+                            <code>VgBufferingModule</code>
+                                <code><a href="../components/FooterComponent.html" target="_self" >FooterComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./video-list.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./video-list.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bitrates" >bitrates</a>
+                            </li>
+                            <li>
+                                <a href="#categoryGroups" >categoryGroups</a>
+                            </li>
+                            <li>
+                                <a href="#mainVideo" >mainVideo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#mediaElementRef" >mediaElementRef</a>
+                            </li>
+                            <li>
+                                <a href="#vgApi" >vgApi</a>
+                            </li>
+                            <li>
+                                <a href="#video" >video</a>
+                            </li>
+                            <li>
+                                <a href="#videoSource" >videoSource</a>
+                            </li>
+                            <li>
+                                <a href="#videoSources" >videoSources</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToVideoDetail" >navigateToVideoDetail</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onPlayerReady" >onPlayerReady</a>
+                            </li>
+                            <li>
+                                <a href="#setBitrate" >setBitrate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(categoryService: <a href="../injectables/CategoryService.html" target="_self">CategoryService</a>, router: Router, videoService: <a href="../injectables/VideoService.html" target="_self">VideoService</a>, route: ActivatedRoute, loginService: <a href="../injectables/LoginService.html" target="_self">LoginService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/video-list/video-list.component.ts:62</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>categoryService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CategoryService.html" target="_self" >CategoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>videoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VideoService.html" target="_self" >VideoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loginService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoginService.html" target="_self" >LoginService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToVideoDetail"></a>
+                    <span class="name">
+                        <span ><b>navigateToVideoDetail</b></span>
+                        <a href="#navigateToVideoDetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToVideoDetail(videoId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>videoId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPlayerReady"></a>
+                    <span class="name">
+                        <span ><b>onPlayerReady</b></span>
+                        <a href="#onPlayerReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onPlayerReady(api: VgApiService)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:190</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>api</td>
+                                            <td>
+                                                        <code>VgApiService</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setBitrate"></a>
+                    <span class="name">
+                        <span ><b>setBitrate</b></span>
+                        <a href="#setBitrate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setBitrate(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/components/video-list/video-list.component.ts:146</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bitrates"></a>
+                    <span class="name">
+                        <span ><b>bitrates</b></span>
+                        <a href="#bitrates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BitrateOptions[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { label: &#x27;360p&#x27;, qualityIndex: 0, width: 640, height: 360, bitrate: 500, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;480p&#x27;, qualityIndex: 1, width: 854, height: 480, bitrate: 1000, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;720p&#x27;, qualityIndex: 2, width: 1280, height: 720, bitrate: 2500, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;1080p&#x27;, qualityIndex: 3, width: 1920, height: 1080, bitrate: 5000, mediaType: &#x27;video/mp4&#x27; }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/video-list/video-list.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoryGroups"></a>
+                    <span class="name">
+                        <span ><b>categoryGroups</b></span>
+                        <a href="#categoryGroups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CategoryGroup.html" target="_self" >CategoryGroup[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/components/video-list/video-list.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mainVideo"></a>
+                    <span class="name">
+                        <span ><b>mainVideo</b></span>
+                        <a href="#mainVideo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Video | null</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/components/video-list/video-list.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mediaElementRef"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>mediaElementRef</b></span>
+                        <a href="#mediaElementRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLVideoElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;media&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/components/video-list/video-list.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vgApi"></a>
+                    <span class="name">
+                        <span ><b>vgApi</b></span>
+                        <a href="#vgApi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>VgApiService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/components/video-list/video-list.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="video"></a>
+                    <span class="name">
+                        <span ><b>video</b></span>
+                        <a href="#video"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Video.html" target="_self" >Video</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/components/video-list/video-list.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="videoSource"></a>
+                    <span class="name">
+                        <span ><b>videoSource</b></span>
+                        <a href="#videoSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/components/video-list/video-list.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="videoSources"></a>
+                    <span class="name">
+                        <span ><b>videoSources</b></span>
+                        <a href="#videoSources"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/components/video-list/video-list.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;; // Import CommonModule
+import { RouterModule } from &#x27;@angular/router&#x27;; // Import RouterModule if using routing
+import { Router } from &#x27;@angular/router&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+
+import { CategoryService, CategoryGroup } from &#x27;src/app/services/category.service&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { Video } from &#x27;src/app/services/category.service&#x27;;
+import { DomSanitizer, SafeResourceUrl } from &#x27;@angular/platform-browser&#x27;;
+import { HeaderLogoutComponent } from &quot;../header-logout/header-logout.component&quot;;
+import { ViewChild, AfterViewInit, ElementRef } from &#x27;@angular/core&#x27;;
+import { VgCoreModule } from &#x27;@videogular/ngx-videogular/core&#x27;;
+import { VgControlsModule } from &#x27;@videogular/ngx-videogular/controls&#x27;;
+import { VgOverlayPlayModule } from &#x27;@videogular/ngx-videogular/overlay-play&#x27;;
+import { VgBufferingModule } from &#x27;@videogular/ngx-videogular/buffering&#x27;;
+import { VgApiService } from &#x27;@videogular/ngx-videogular/core&#x27;;
+import { BitrateOptions } from &#x27;@videogular/ngx-videogular/core/lib/interfaces/bitrate-options.interface&#x27;;
+import { VideoService} from &#x27;src/app/services/video.service&#x27;;
+import { LoginService } from &#x27;src/app/services/login.service&#x27;;
+import { FooterComponent } from &quot;../footer/footer.component&quot;; // Adjust the path as necessary
+
+
+
+
+
+
+@Component({
+  selector: &#x27;app-video-list&#x27;,
+  standalone: true, // Declare as standalone
+  imports: [CommonModule,
+    MatButtonModule,
+    RouterModule,
+    HeaderLogoutComponent,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule, FooterComponent], // Import necessary modules
+  templateUrl: &#x27;./video-list.component.html&#x27;,
+  styleUrls: [&#x27;./video-list.component.scss&#x27;],
+})
+export class VideoListComponent implements OnInit {
+  categoryGroups: CategoryGroup[] &#x3D; [];
+
+
+  @ViewChild(&#x27;media&#x27;, { static: false }) mediaElementRef!: ElementRef&lt;HTMLVideoElement&gt;;
+
+  vgApi!: VgApiService;
+  videoSource: string &#x3D; &#x27;&#x27;; // Will be set from backend data
+
+  // Bitrate options for the quality selector
+  bitrates: BitrateOptions[] &#x3D; [
+    { label: &#x27;360p&#x27;, qualityIndex: 0, width: 640, height: 360, bitrate: 500, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;480p&#x27;, qualityIndex: 1, width: 854, height: 480, bitrate: 1000, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;720p&#x27;, qualityIndex: 2, width: 1280, height: 720, bitrate: 2500, mediaType: &#x27;video/mp4&#x27; },
+    { label: &#x27;1080p&#x27;, qualityIndex: 3, width: 1920, height: 1080, bitrate: 5000, mediaType: &#x27;video/mp4&#x27; }
+  ];
+  mainVideo!: Video | null;
+  // Mapping bitrate qualityIndex to video sources
+  videoSources: { [key: number]: string | undefined } &#x3D; {};
+
+  video!: Video;
+
+
+  constructor(private categoryService: CategoryService, 
+    private router: Router,
+    private videoService: VideoService,
+    private route: ActivatedRoute,
+    private loginService: LoginService,
+  ) {}
+
+  ngOnInit(): void {
+    // Fetch all videos grouped by category using CategoryService
+    this.categoryService.getVideosByCategory().subscribe(
+      (data) &#x3D;&gt; {
+        this.categoryGroups &#x3D; data;
+  
+        // Assuming &quot;Main&quot; is one of the categories in your CategoryGroup
+        const mainCategoryGroup &#x3D; data.find(group &#x3D;&gt; group.category?.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;main&#x27;);
+  
+        if (mainCategoryGroup &amp;&amp; mainCategoryGroup.videos.length &gt; 0) {
+          // Set the first video in the &quot;Main&quot; category as the main video
+          const mainVideo &#x3D; mainCategoryGroup.videos[0];
+          this.mainVideo &#x3D; mainVideo;
+  
+          if (this.mainVideo) {
+            // Debugging: Check if the video has valid source files
+            console.log(&#x27;Main video data:&#x27;, this.mainVideo);
+  
+            // Map available video qualities to URLs dynamically
+            this.videoSources &#x3D; {};
+  
+            if (this.mainVideo.video_file_360p) {
+              this.videoSources[0] &#x3D; this.mainVideo.video_file_360p;
+            }
+            if (this.mainVideo.video_file_480p) {
+              this.videoSources[1] &#x3D; this.mainVideo.video_file_480p;
+            }
+            if (this.mainVideo.video_file_720p) {
+              this.videoSources[2] &#x3D; this.mainVideo.video_file_720p;
+            }
+            if (this.mainVideo.video_file_1080p) {
+              this.videoSources[3] &#x3D; this.mainVideo.video_file_1080p;
+            }
+  
+            // Debugging: Check if the videoSources object has valid URLs
+            console.log(&#x27;Available video sources:&#x27;, this.videoSources);
+  
+            // Set default video source (e.g., highest available quality)
+            this.videoSource &#x3D;
+              this.mainVideo.video_file_1080p ||
+              this.mainVideo.video_file_720p ||
+              this.mainVideo.video_file_480p ||
+              this.mainVideo.video_file_360p ||
+              &#x27;&#x27;;
+  
+            // Debugging: Check if the videoSource has been set
+            console.log(&#x27;Selected video source:&#x27;, this.videoSource);
+  
+            if (!this.videoSource) {
+              console.error(&#x27;No video sources are available.&#x27;);
+            }
+          } else {
+            console.error(&#x27;No main video found in the &quot;Main&quot; category.&#x27;);
+          }
+        } else {
+          console.error(&#x27;No videos found in the &quot;Main&quot; category.&#x27;);
+        }
+      },
+      (error) &#x3D;&gt; {
+        console.error(&#x27;Error fetching videos by category:&#x27;, error);
+      }
+    );
+  }
+
+
+
+  navigateToVideoDetail(videoId: number): void {
+    this.router.navigate([&#x27;/video&#x27;, videoId]);
+  }
+
+
+
+
+   // Event handler for changing the bitrate (quality)
+   setBitrate(event: any) {
+    console.log(&#x27;Full bitrate change event:&#x27;, event);
+  
+    if (!event || event.qualityIndex &#x3D;&#x3D;&#x3D; undefined) {
+      console.error(&#x27;Invalid bitrate change event:&#x27;, event);
+      return;
+    }
+  
+    console.log(&#x27;Selected bitrate quality index:&#x27;, event.qualityIndex);
+  
+    const selectedSrc &#x3D; this.videoSources[event.qualityIndex as keyof typeof this.videoSources];
+    if (selectedSrc) {
+      this.videoSource &#x3D; selectedSrc;
+  
+      console.log(&#x27;Setting video source to:&#x27;, this.videoSource);  // Log the selected video source
+  
+      const videoElement &#x3D; this.mediaElementRef.nativeElement;
+      const currentTime &#x3D; videoElement.currentTime;  // Save the current playback time
+      const wasPlaying &#x3D; !videoElement.paused;  // Check if the video is currently playing
+  
+      videoElement.pause();
+      videoElement.src &#x3D; this.videoSource;
+      videoElement.load();
+  
+      // Ensure that we set the current time after the video metadata is loaded
+      videoElement.onloadedmetadata &#x3D; () &#x3D;&gt; {
+        videoElement.currentTime &#x3D; currentTime;  // Restore the playback time
+        console.log(&#x27;Restoring playback to time:&#x27;, currentTime);
+  
+        // Resume playback if the video was playing before the quality change
+        if (wasPlaying) {
+          videoElement.play().then(() &#x3D;&gt; {
+            console.log(&#x27;Video resumed successfully.&#x27;);
+          }).catch((error: any) &#x3D;&gt; {
+            console.error(&#x27;Error playing video:&#x27;, error);
+          });
+        }
+      };
+    } else {
+      console.error(&#x27;Selected source not found for bitrate:&#x27;, event.qualityIndex);
+    }
+  }
+
+  // Set vgApi when the video player is ready
+  onPlayerReady(api: VgApiService) {
+    this.vgApi &#x3D; api;
+  }
+
+  goBack(): void {
+    this.router.navigate([&#x27;video-list/&#x27;]);
+  }
+
+
+  logout() {
+    this.loginService.logout();
+    this.router.navigate([&#x27;/login&#x27;]);
+    console.log(&#x27;Test Logout&#x27;)
+   }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;videoListContainer&quot;&gt;
+
+  &lt;app-header-logout&gt;&lt;/app-header-logout&gt;
+&lt;main class&#x3D;&quot;videoListMainContainer&quot;&gt;
+
+  
+
+
+
+
+  &lt;div class&#x3D;&quot;mainVideo&quot; *ngIf&#x3D;&quot;mainVideo&quot;&gt;
+
+
+
+      &lt;vg-player class&#x3D;&quot;videoDetailVideoPlayer&quot; (onPlayerReady)&#x3D;&quot;onPlayerReady($event)&quot;&gt;
+    
+            &lt;vg-overlay-play&gt;&lt;/vg-overlay-play&gt;
+            &lt;vg-buffering&gt;&lt;/vg-buffering&gt;
+        
+    
+            
+    
+    
+    &lt;video 
+    [vgMedia]&#x3D;&quot;$any(media)&quot; 
+    #media id&#x3D;&quot;my-video&quot; 
+    preload&#x3D;&quot;auto&quot;&gt;
+    &lt;source  [src]&#x3D;&quot;videoSource&quot; type&#x3D;&quot;video/mp4&quot; crossorigin&gt;
+    &lt;/video&gt;
+    &lt;/vg-player&gt;
+
+
+
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;videoCategoryList&quot;&gt;
+&lt;div class&#x3D;&quot;categoryList&quot; *ngFor&#x3D;&quot;let group of categoryGroups&quot;&gt;
+  &lt;div *ngIf&#x3D;&quot;group.category?.toLowerCase() !&#x3D;&#x3D; &#x27;main&#x27;&quot;&gt;
+    &lt;h2&gt;{{ group.category }} Projects&lt;/h2&gt;
+    &lt;div class&#x3D;&quot;video-list&quot;&gt;
+      &lt;div *ngFor&#x3D;&quot;let video of group.videos&quot; class&#x3D;&quot;video-item&quot;&gt;
+        &lt;h3&gt;{{ video.title }}&lt;/h3&gt;
+        &lt;img class&#x3D;&quot;videolistImg&quot;
+          [src]&#x3D;&quot;video.thumbnail&quot;
+          alt&#x3D;&quot;{{ video.title }} thumbnail&quot;
+          (click)&#x3D;&quot;navigateToVideoDetail(video.id)&quot;
+          style&#x3D;&quot;cursor: pointer;&quot;
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/main&gt;
+&lt;app-footer&gt;&lt;/app-footer&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./video-list.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.videoListContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    color: white !important;
+    justify-content: center;
+    }
+  
+  
+    .videoListContainer::before {
+      content: &quot;&quot;;
+      background-image: url(&#x27;../../../assets/img/background_animals.jpg&#x27;); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      filter: blur(1px);
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    .videoCategoryList {
+        overflow-y: auto;
+        height: 50vh;
+        padding-bottom: 64px;
+        padding-top: 16px;
+        padding-left: 32px;
+        scrollbar-width: auto;
+        scrollbar-color: #00DDDD #000000a6;
+      }
+    
+    .categoryList {
+        margin-bottom: 32px;
+    }
+
+
+
+.videolistImg {
+    height:120px;
+    width: 220px;
+    padding-right: 16px;
+}
+
+
+
+.videoTitleButtonContainer {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100vw;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+vg-player:hover .controlsPlayer {
+    display: block;
+    }
+    
+    .controlsPlayer {
+        display: none;
+    }
+        
+    vg-player:hover .scrubBarVideo {
+        display: block;
+        }
+        
+        .scrubBarVideo {
+            display: none;
+        }
+
+
+        vg-player:hover .videoTitleButtonContainer {
+            display: flex;
+            }
+            
+            .videoTitleButtonContainer {
+                display: none;
+            }
+
+
+            .videoDetailVideoPlayer {
+                width: 100vw;
+                height: 50vh;
+                position: relative; /* Ensure position for children */
+                overflow: hidden;
+            }
+
+
+.video-list {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    
+}
+
+.video-list img {
+    max-width: none;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="videoListContainer">  <app-header-logout></app-header-logout><main class="videoListMainContainer">    <div class="mainVideo" *ngIf="mainVideo">      <vg-player class="videoDetailVideoPlayer" (onPlayerReady)="onPlayerReady($event)">                <vg-overlay-play></vg-overlay-play>            <vg-buffering></vg-buffering>                                    <video     [vgMedia]="$any(media)"     #media id="my-video"     preload="auto">    <source  [src]="videoSource" type="video/mp4" crossorigin>    </video>    </vg-player>  </div>  <div class="videoCategoryList"><div class="categoryList" *ngFor="let group of categoryGroups">  <div *ngIf="group.category?.toLowerCase() !== \'main\'">    <h2>{{ group.category }} Projects</h2>    <div class="video-list">      <div *ngFor="let video of group.videos" class="video-item">        <h3>{{ video.title }}</h3>        <img class="videolistImg"          [src]="video.thumbnail"          alt="{{ video.title }} thumbnail"          (click)="navigateToVideoDetail(video.id)"          style="cursor: pointer;"        />      </div>    </div>  </div></div></div></main><app-footer></app-footer></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardPlayerComponent', 'selector': 'app-board-player'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderLogoutComponent', 'selector': 'app-header-logout'},{'name': 'LegalComponent', 'selector': 'app-legal'},{'name': 'LogInComponent', 'selector': 'app-log-in'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'VideoDetailComponent', 'selector': 'app-video-detail'},{'name': 'VideoListComponent', 'selector': 'app-video-list'},{'name': 'VideoPlayerComponent', 'selector': 'app-video-player'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'VideoListComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'VideoListComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

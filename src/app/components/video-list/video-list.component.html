@@ -1,0 +1,58 @@
+<div class="videoListContainer">
+
+  <app-header-logout></app-header-logout>
+<main class="videoListMainContainer">
+
+  
+
+
+
+
+  <div class="mainVideo" *ngIf="mainVideo">
+
+
+
+      <vg-player class="videoDetailVideoPlayer" (onPlayerReady)="onPlayerReady($event)">
+    
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+        
+    
+            
+    
+    
+    <video 
+    [vgMedia]="$any(media)" 
+    #media id="my-video" 
+    preload="auto"
+    autoplay
+    >
+    <source  [src]="videoSource" type="video/mp4" crossorigin>
+    </video>
+    </vg-player>
+
+
+
+  </div>
+
+  <div class="videoCategoryList">
+<div class="categoryList" *ngFor="let group of categoryGroups">
+  <div *ngIf="group.category?.toLowerCase() !== 'main'">
+    <h2>{{ group.category }}</h2>
+    <div class="video-list">
+      <div *ngFor="let video of group.videos" class="video-item">
+        <h6>{{ video.title }}</h6>
+        <img class="videolistImg"
+          [src]="video.thumbnail"
+          alt="{{ video.title }} thumbnail"
+          (click)="navigateToVideoDetail(video.id)"
+          style="cursor: pointer;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</main>
+<app-footer></app-footer>
+</div>

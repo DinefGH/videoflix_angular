@@ -1,0 +1,100 @@
+<div class="signUpContainer">
+<header>
+  <app-header></app-header>
+</header>
+
+<div></div>
+<main class="signUpMainContainer">
+
+<div class="signUpHeadlineContainer">
+  <h2>Sign Up</h2>
+</div>
+
+
+
+<form class="signUp" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="email"
+        (blur)="updateErrorMessage()"
+        autocomplete="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid && email.touched">
+        {{ errorMessage }}
+      </mat-error>
+    </mat-form-field>
+  
+    
+    
+
+        <mat-form-field class="formFieldPassword" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide() ? 'password' : 'text'" [formControl]="password"  autocomplete="new-password" required />
+            <button
+                mat-icon-button
+                matSuffix
+                (click)="clickEvent($event)"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide()"
+               
+            >
+            <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid && password.touched">
+                {{ password.hasError('required') ? 'Password is required' : '' }}
+            </mat-error>
+        </mat-form-field>
+  
+
+    <mat-form-field class="formFieldPassword" appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput [type]="hide() ? 'password' : 'text'" [formControl]="confirmPassword"  autocomplete="new-password" required />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="clickEvent($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide()"
+        
+      >
+        <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="!passwordsMatch || confirmPassword.hasError('required')">
+        {{ getPasswordErrorMessageMatch() }}
+      </mat-error>
+
+    </mat-form-field>
+    <div class="labelDoNotMatch" *ngIf="!passwordsMatch">
+        Passwords do not match
+    </div>
+  
+
+    <div class="checkLink">
+      <mat-checkbox class="example-margin" formControlName="checkbox"></mat-checkbox>
+      <p class="acceptContainer">I accept the</p>
+      <a class="link privacyContainer" href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+    </div>
+
+
+    <div class="signUpButtonContainer">
+        <button mat-flat-button type="submit">Sign Up</button>
+    </div>
+
+  </form>
+
+
+  
+
+ <div *ngIf="registered" class="successfullyRegistered">User registered successfully! Please check your email to verify your account</div>
+ <div *ngIf="notRegistered" class="notSuccessfullyRegistered">Sign Up failed! Please try again</div>
+
+
+</main>
+<footer>
+  <app-footer></app-footer>
+</footer>
+</div>

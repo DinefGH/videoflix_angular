@@ -1,0 +1,96 @@
+
+<div class="videoDetailContainer">
+
+<main class="videoDetailMainContainer" *ngIf="video">
+
+
+
+
+  <vg-player class="videoDetailVideoPlayer" (onPlayerReady)="onPlayerReady($event)">
+    <div class="videoTitleButtonContainer">
+      
+      <div><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_79_605)">
+          <path d="M0.71 0.0499256C1.09 0.229926 1.47 0.419926 1.84 0.599926C3.6 1.44993 5.35 2.30993 7.11 3.15993C9.55 4.33993 11.98 5.52993 14.42 6.70993C16.7 7.81993 18.98 8.92992 21.26 10.0299C23 10.8799 24.74 11.7699 26.54 12.4899C25.26 12.2299 23.91 12.6199 22.73 13.1199C21.71 13.5599 20.73 14.0999 19.72 14.5699C18.62 15.0799 17.35 15.0799 16.24 14.5899L6.22 10.1399C2.44 8.46993 0 4.67993 0 0.499926C0 0.129926 0.38 -0.110074 0.71 0.0499256Z" fill="url(#paint0_linear_79_605)" stroke="#00DDDD" stroke-width="0.1"/>
+          <path d="M31.3 17.1699L4.3 30.3599L1.11 31.9199C0.6 32.1699 0 31.7899 0 31.2199V30.1299C0 27.0799 1.67 24.2999 4.3 22.8799C4.48 22.7799 4.66 22.6999 4.84 22.6099L19.4 15.9999L24 13.9399C24.34 13.7899 24.69 13.6699 25.05 13.5799C25.75 13.3999 26.47 13.3399 27.19 13.3999C27.98 13.4699 28.75 13.6799 29.48 14.0299L31.3 14.9099C32.24 15.3699 32.24 16.7199 31.3 17.1699Z" fill="url(#paint1_linear_79_605)" stroke="#00DDDD" stroke-width="0.1"/>
+        </g>
+        <defs>
+          <linearGradient id="paint0_linear_79_605" x1="13.27" y1="14.9599" x2="13.27" y2="-7.45392e-05" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFB4AB"/>
+            <stop offset="1" stop-color="#00DDDD"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_79_605" x1="-0.94" y1="29.9999" x2="30.06" y2="13.4999" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00DDDD"/>
+            <stop offset="1" stop-color="#FFB4AB"/>
+          </linearGradient>
+          <clipPath id="clip0_79_605">
+            <rect width="35.66" height="32" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg></div>
+
+      <h2>{{ video.title }}</h2>
+  
+
+      <div class="videoDetailBackButton" (click)="goBack()">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.7001 17.5L17.0501 28.85C17.3501 29.15 17.5001 29.5 17.5001 29.9C17.5001 30.3 17.3501 30.65 17.0501 30.95C16.7501 31.25 16.4001 31.4 16.0001 31.4C15.6001 31.4 15.2501 31.25 14.9501 30.95L1.0501 17.05C0.883431 16.8833 0.766764 16.7166 0.700098 16.55C0.633431 16.3833 0.600098 16.2 0.600098 16C0.600098 15.8 0.633431 15.6166 0.700098 15.45C0.766764 15.2833 0.883431 15.1166 1.0501 14.95L14.9501 1.04998C15.2501 0.749976 15.6001 0.599976 16.0001 0.599976C16.4001 0.599976 16.7501 0.749976 17.0501 1.04998C17.3501 1.34998 17.5001 1.69998 17.5001 2.09998C17.5001 2.49998 17.3501 2.84998 17.0501 3.14998L5.7001 14.5H30.5001C30.9334 14.5 31.2918 14.6416 31.5751 14.925C31.8584 15.2083 32.0001 15.5666 32.0001 16C32.0001 16.4333 31.8584 16.7916 31.5751 17.075C31.2918 17.3583 30.9334 17.5 30.5001 17.5H5.7001Z" fill="white"/>
+          </svg>
+      </div>
+    </div>
+
+        <vg-overlay-play></vg-overlay-play>
+        <vg-buffering></vg-buffering>
+    
+
+        <div class="scrubBarVideo">
+        <vg-scrub-bar>
+            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+        </vg-scrub-bar>
+      </div>
+    
+        <div class="controlsPlayer">
+        <vg-controls>
+            <vg-play-pause></vg-play-pause>
+  
+
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+    
+
+            <vg-playback-button></vg-playback-button>
+
+            
+            <vg-quality-selector 
+            [bitrates]="bitrates" 
+            (onBitrateChange)="setBitrate($event)">
+          </vg-quality-selector>
+
+
+            <vg-mute></vg-mute>
+            <vg-volume></vg-volume>
+    
+            <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+</div>
+
+
+<video 
+[vgMedia]="$any(media)" 
+#media id="my-video" 
+preload="auto">
+<source  [src]="videoSource" type="video/mp4" crossorigin>
+</video>
+</vg-player>
+
+
+
+<div class="videoDescriptionContainer">
+    <p>{{ video.description }}</p>
+</div>
+</main>
+<app-footer></app-footer>
+</div>

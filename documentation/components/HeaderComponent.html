@@ -1,0 +1,382 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>videoflix-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">videoflix-frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/header/header.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The <code>HeaderComponent</code> serves as the header for the application.
+It typically includes navigation buttons and a logo or brand name.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterModule</code>
+                            <code>MatButtonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {  Component, signal, model } from &#x27;@angular/core&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { RouterModule } from &#x27;@angular/router&#x27;;
+import { Routes } from &#x27;@angular/router&#x27;;
+
+
+
+/**
+ * The &#x60;HeaderComponent&#x60; serves as the header for the application.
+ * It typically includes navigation buttons and a logo or brand name.
+ */
+@Component({
+  selector: &#x27;app-header&#x27;,
+  standalone: true,
+  imports: [
+    RouterModule,
+    MatButtonModule,],
+  templateUrl: &#x27;./header.component.html&#x27;,
+  styleUrl: &#x27;./header.component.scss&#x27;
+})
+export class HeaderComponent {
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;headerContainer&quot;&gt;
+
+    &lt;svg class&#x3D;&quot;headerIconSmall&quot; routerLink&#x3D;&quot;/video-list&quot; width&#x3D;&quot;32&quot; height&#x3D;&quot;32&quot; viewBox&#x3D;&quot;0 0 32 32&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;g clip-path&#x3D;&quot;url(#clip0_79_605)&quot;&gt;
+          &lt;path d&#x3D;&quot;M0.71 0.0499256C1.09 0.229926 1.47 0.419926 1.84 0.599926C3.6 1.44993 5.35 2.30993 7.11 3.15993C9.55 4.33993 11.98 5.52993 14.42 6.70993C16.7 7.81993 18.98 8.92992 21.26 10.0299C23 10.8799 24.74 11.7699 26.54 12.4899C25.26 12.2299 23.91 12.6199 22.73 13.1199C21.71 13.5599 20.73 14.0999 19.72 14.5699C18.62 15.0799 17.35 15.0799 16.24 14.5899L6.22 10.1399C2.44 8.46993 0 4.67993 0 0.499926C0 0.129926 0.38 -0.110074 0.71 0.0499256Z&quot; fill&#x3D;&quot;url(#paint0_linear_79_605)&quot; stroke&#x3D;&quot;#00DDDD&quot; stroke-width&#x3D;&quot;0.1&quot;/&gt;
+          &lt;path d&#x3D;&quot;M31.3 17.1699L4.3 30.3599L1.11 31.9199C0.6 32.1699 0 31.7899 0 31.2199V30.1299C0 27.0799 1.67 24.2999 4.3 22.8799C4.48 22.7799 4.66 22.6999 4.84 22.6099L19.4 15.9999L24 13.9399C24.34 13.7899 24.69 13.6699 25.05 13.5799C25.75 13.3999 26.47 13.3399 27.19 13.3999C27.98 13.4699 28.75 13.6799 29.48 14.0299L31.3 14.9099C32.24 15.3699 32.24 16.7199 31.3 17.1699Z&quot; fill&#x3D;&quot;url(#paint1_linear_79_605)&quot; stroke&#x3D;&quot;#00DDDD&quot; stroke-width&#x3D;&quot;0.1&quot;/&gt;
+        &lt;/g&gt;
+        &lt;defs&gt;
+          &lt;linearGradient id&#x3D;&quot;paint0_linear_79_605&quot; x1&#x3D;&quot;13.27&quot; y1&#x3D;&quot;14.9599&quot; x2&#x3D;&quot;13.27&quot; y2&#x3D;&quot;-7.45392e-05&quot; gradientUnits&#x3D;&quot;userSpaceOnUse&quot;&gt;
+            &lt;stop stop-color&#x3D;&quot;#FFB4AB&quot;/&gt;
+            &lt;stop offset&#x3D;&quot;1&quot; stop-color&#x3D;&quot;#00DDDD&quot;/&gt;
+          &lt;/linearGradient&gt;
+          &lt;linearGradient id&#x3D;&quot;paint1_linear_79_605&quot; x1&#x3D;&quot;-0.94&quot; y1&#x3D;&quot;29.9999&quot; x2&#x3D;&quot;30.06&quot; y2&#x3D;&quot;13.4999&quot; gradientUnits&#x3D;&quot;userSpaceOnUse&quot;&gt;
+            &lt;stop stop-color&#x3D;&quot;#00DDDD&quot;/&gt;
+            &lt;stop offset&#x3D;&quot;1&quot; stop-color&#x3D;&quot;#FFB4AB&quot;/&gt;
+          &lt;/linearGradient&gt;
+          &lt;clipPath id&#x3D;&quot;clip0_79_605&quot;&gt;
+            &lt;rect width&#x3D;&quot;35.66&quot; height&#x3D;&quot;32&quot; fill&#x3D;&quot;white&quot;/&gt;
+          &lt;/clipPath&gt;
+        &lt;/defs&gt;
+      &lt;/svg&gt;
+
+
+    &lt;button mat-flat-button routerLink&#x3D;&quot;/login&quot;&gt;
+        Log In
+    &lt;/button&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="headerContainer">    <svg class="headerIconSmall" routerLink="/video-list" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">        <g clip-path="url(#clip0_79_605)">          <path d="M0.71 0.0499256C1.09 0.229926 1.47 0.419926 1.84 0.599926C3.6 1.44993 5.35 2.30993 7.11 3.15993C9.55 4.33993 11.98 5.52993 14.42 6.70993C16.7 7.81993 18.98 8.92992 21.26 10.0299C23 10.8799 24.74 11.7699 26.54 12.4899C25.26 12.2299 23.91 12.6199 22.73 13.1199C21.71 13.5599 20.73 14.0999 19.72 14.5699C18.62 15.0799 17.35 15.0799 16.24 14.5899L6.22 10.1399C2.44 8.46993 0 4.67993 0 0.499926C0 0.129926 0.38 -0.110074 0.71 0.0499256Z" fill="url(#paint0_linear_79_605)" stroke="#00DDDD" stroke-width="0.1"/>          <path d="M31.3 17.1699L4.3 30.3599L1.11 31.9199C0.6 32.1699 0 31.7899 0 31.2199V30.1299C0 27.0799 1.67 24.2999 4.3 22.8799C4.48 22.7799 4.66 22.6999 4.84 22.6099L19.4 15.9999L24 13.9399C24.34 13.7899 24.69 13.6699 25.05 13.5799C25.75 13.3999 26.47 13.3399 27.19 13.3999C27.98 13.4699 28.75 13.6799 29.48 14.0299L31.3 14.9099C32.24 15.3699 32.24 16.7199 31.3 17.1699Z" fill="url(#paint1_linear_79_605)" stroke="#00DDDD" stroke-width="0.1"/>        </g>        <defs>          <linearGradient id="paint0_linear_79_605" x1="13.27" y1="14.9599" x2="13.27" y2="-7.45392e-05" gradientUnits="userSpaceOnUse">            <stop stop-color="#FFB4AB"/>            <stop offset="1" stop-color="#00DDDD"/>          </linearGradient>          <linearGradient id="paint1_linear_79_605" x1="-0.94" y1="29.9999" x2="30.06" y2="13.4999" gradientUnits="userSpaceOnUse">            <stop stop-color="#00DDDD"/>            <stop offset="1" stop-color="#FFB4AB"/>          </linearGradient>          <clipPath id="clip0_79_605">            <rect width="35.66" height="32" fill="white"/>          </clipPath>        </defs>      </svg>    <button mat-flat-button routerLink="/login">        Log In    </button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardPlayerComponent', 'selector': 'app-board-player'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderLogoutComponent', 'selector': 'app-header-logout'},{'name': 'LegalComponent', 'selector': 'app-legal'},{'name': 'LogInComponent', 'selector': 'app-log-in'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'VideoDetailComponent', 'selector': 'app-video-detail'},{'name': 'VideoListComponent', 'selector': 'app-video-list'},{'name': 'VideoPlayerComponent', 'selector': 'app-video-player'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

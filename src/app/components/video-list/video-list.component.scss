@@ -1,0 +1,105 @@
+.videoListContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    z-index: 1;
+    color: white !important;
+    justify-content: center;
+    }
+  
+  
+    .videoListContainer::before {
+      content: "";
+      background-image: url('../../../assets/img/background_animals.jpg'); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      filter: blur(6px);
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    .videoCategoryList {
+        overflow-y: auto;
+        height: 50vh;
+        padding-bottom: 64px;
+        padding-top: 16px;
+        padding-left: 32px;
+        scrollbar-width: auto;
+        scrollbar-color: #00DDDD #000000a6;
+      }
+    
+    .categoryList {
+        margin-bottom: 32px;
+    }
+
+
+
+.videolistImg {
+    height:120px;
+    width: 220px;
+    padding-right: 16px;
+}
+
+
+
+.videoTitleButtonContainer {
+    position: absolute;
+    z-index: 999;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100vw;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+vg-player:hover .controlsPlayer {
+    display: block;
+    }
+    
+    .controlsPlayer {
+        display: none;
+    }
+        
+    vg-player:hover .scrubBarVideo {
+        display: block;
+        }
+        
+        .scrubBarVideo {
+            display: none;
+        }
+
+
+        vg-player:hover .videoTitleButtonContainer {
+            display: flex;
+            }
+            
+            .videoTitleButtonContainer {
+                display: none;
+            }
+
+
+            .videoDetailVideoPlayer {
+                width: 100vw;
+                height: 50vh;
+                position: relative; /* Ensure position for children */
+                overflow: hidden;
+            }
+
+
+.video-list {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    
+}
+
+.video-list img {
+    max-width: none;
+}

@@ -1,0 +1,521 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>videoflix-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">videoflix-frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderLogoutComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/header-logout/header-logout.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header-logout</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>MatButtonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header-logout.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./header-logout.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(loginService: <a href="../injectables/LoginService.html" target="_self">LoginService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/header-logout/header-logout.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>loginService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoginService.html" target="_self" >LoginService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/components/header-logout/header-logout.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { MatButtonModule } from &#x27;@angular/material/button&#x27;;
+import { LoginService } from &#x27;src/app/services/login.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-header-logout&#x27;,
+  standalone: true,
+  imports: [
+    MatButtonModule,
+  ],
+  templateUrl: &#x27;./header-logout.component.html&#x27;,
+  styleUrl: &#x27;./header-logout.component.scss&#x27;
+})
+export class HeaderLogoutComponent {
+
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) {}
+
+
+  logout() {
+    this.loginService.logout().subscribe({
+      next: () &#x3D;&gt; {
+        this.router.navigate([&#x27;/login&#x27;]); // Navigate after successful logout
+        console.log(&#x27;Logout successful&#x27;);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Logout failed&#x27;, error); // Handle error
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;headerLogoutContainer&quot;&gt;
+
+  &lt;svg class&#x3D;&quot;headerLogoutLogo&quot; width&#x3D;&quot;201&quot; height&#x3D;&quot;32&quot; viewBox&#x3D;&quot;0 0 201 32&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+    &lt;g clip-path&#x3D;&quot;url(#clip0_92_193)&quot;&gt;
+    &lt;path d&#x3D;&quot;M0.71 0.0499866C1.09 0.229987 1.47 0.419987 1.84 0.599987C3.6 1.44999 5.35 2.30999 7.11 3.15999C9.55 4.33999 11.98 5.52999 14.42 6.70999C16.7 7.81999 18.98 8.92999 21.26 10.03C23 10.88 24.74 11.77 26.54 12.49C25.26 12.23 23.91 12.62 22.73 13.12C21.71 13.56 20.73 14.1 19.72 14.57C18.62 15.08 17.35 15.08 16.24 14.59L6.22 10.14C2.44 8.46999 0 4.67999 0 0.499987C0 0.129987 0.38 -0.110013 0.71 0.0499866Z&quot; fill&#x3D;&quot;url(#paint0_linear_92_193)&quot;/&gt;
+    &lt;path d&#x3D;&quot;M31.3 17.17L4.3 30.36L1.11 31.92C0.6 32.17 0 31.79 0 31.22V30.13C0 27.08 1.67 24.3 4.3 22.88C4.48 22.78 4.66 22.7 4.84 22.61L19.4 16L24 13.94C24.34 13.79 24.69 13.67 25.05 13.58C25.75 13.4 26.47 13.34 27.19 13.4C27.98 13.47 28.75 13.68 29.48 14.03L31.3 14.91C32.24 15.37 32.24 16.72 31.3 17.17Z&quot; fill&#x3D;&quot;url(#paint1_linear_92_193)&quot;/&gt;
+    &lt;path d&#x3D;&quot;M48.9501 21.7L47.4701 18.37L42.7301 7.83001C41.7801 5.70001 39.6701 4.32001 37.3401 4.32001H36.5601C36.1401 4.32001 35.8701 4.76001 36.0501 5.13001L46.6301 26.99C46.9501 27.67 47.9201 27.66 48.2501 26.98L48.8801 25.67C49.4801 24.42 49.5101 22.97 48.9501 21.7ZM58.5701 4.32001C55.5801 4.32001 52.8701 6.09001 51.6601 8.83001L48.4701 16.08C48.1201 16.89 48.1201 17.8 48.4801 18.6C48.8201 19.33 49.2101 20.04 49.5201 20.78C49.8901 21.64 50.1601 22.62 49.9801 23.54C50.4901 22.24 51.1401 20.98 51.7401 19.72C52.5401 18.07 53.3301 16.42 54.1201 14.77C54.9701 13 55.8201 11.24 56.6701 9.47001C57.2801 8.20001 57.8901 6.93001 58.5001 5.66001C58.6401 5.39001 58.7701 5.11001 58.9001 4.84001C59.0101 4.60001 58.8401 4.32001 58.5701 4.32001ZM166.6 4.32001V22.84C166.6 25.51 168.77 27.68 171.44 27.68V9.16001C171.44 6.49001 169.27 4.32001 166.6 4.32001ZM154.73 23V9.16001C154.73 6.49001 152.56 4.32001 149.89 4.32001V27.68H164.84V23H154.73ZM148.13 9.00001V4.32001H133.19V27.68H138.02V18.92H146.31V14.27H138.02V9.00001H148.13ZM118.98 4.01001C112.2 4.01001 106.96 9.25001 106.96 16C106.96 22.75 112.17 27.99 118.98 27.99C125.79 27.99 131.07 22.78 131.07 16C131.07 9.22001 125.76 4.01001 118.98 4.01001ZM118.98 23.22C114.96 23.22 111.92 20.14 111.92 16C111.92 11.86 114.9 8.78001 118.98 8.78001C123.06 8.78001 126.08 11.85 126.08 16C126.08 20.15 123 23.22 118.98 23.22ZM105.79 8.97001V4.32001H90.5301V27.68H105.79V23.03H95.3701V17.98H104.56V13.61H95.3701V8.97001H105.79ZM75.4501 4.32001H67.5101V27.68H75.4501C83.2001 27.68 88.3901 23 88.3901 16C88.3901 9.00001 83.2001 4.32001 75.4501 4.32001ZM76.1401 23H72.3401V9.00001H76.1401C80.4401 9.00001 83.4301 11.85 83.4301 16C83.4301 20.15 80.4401 23 76.1401 23ZM59.5901 4.32001V27.68H64.4301V9.16001C64.4301 6.49001 62.2601 4.32001 59.5901 4.32001ZM186.86 19.04L195.15 27.59H193.62C190.9 27.59 188.29 26.5 186.38 24.57L183.97 22.13L183.53 21.74L181.9 23.39C179.86 25.45 178.1 26.82 175.04 27.35C174.33 27.47 173.69 26.92 173.69 26.2C173.69 25.9 173.81 25.6 174.03 25.38L180.66 18.76L180.75 18.69L180.14 18.06L176.64 14.52H176.65C174.7 12.55 173.6 9.89001 173.6 7.12001C173.6 6.56001 174.28 6.28001 174.68 6.68001L183.6 15.71L184.2 15.09L185.23 14.05L191.46 7.81001C193.63 5.63001 196.59 4.41001 199.67 4.41001H200.66L187.6 17.5L187.38 17.72L186.45 18.68L186.86 19.04Z&quot; fill&#x3D;&quot;url(#paint2_linear_92_193)&quot;/&gt;
+    &lt;/g&gt;
+    &lt;defs&gt;
+    &lt;linearGradient id&#x3D;&quot;paint0_linear_92_193&quot; x1&#x3D;&quot;13.27&quot; y1&#x3D;&quot;14.96&quot; x2&#x3D;&quot;13.27&quot; y2&#x3D;&quot;-1.3504e-05&quot; gradientUnits&#x3D;&quot;userSpaceOnUse&quot;&gt;
+    &lt;stop stop-color&#x3D;&quot;#FFB4AB&quot;/&gt;
+    &lt;stop offset&#x3D;&quot;1&quot; stop-color&#x3D;&quot;#00DDDD&quot;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;linearGradient id&#x3D;&quot;paint1_linear_92_193&quot; x1&#x3D;&quot;-0.94&quot; y1&#x3D;&quot;30&quot; x2&#x3D;&quot;30.06&quot; y2&#x3D;&quot;13.5&quot; gradientUnits&#x3D;&quot;userSpaceOnUse&quot;&gt;
+    &lt;stop stop-color&#x3D;&quot;#00DDDD&quot;/&gt;
+    &lt;stop offset&#x3D;&quot;1&quot; stop-color&#x3D;&quot;#FFB4AB&quot;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;linearGradient id&#x3D;&quot;paint2_linear_92_193&quot; x1&#x3D;&quot;25.2801&quot; y1&#x3D;&quot;29.75&quot; x2&#x3D;&quot;208.74&quot; y2&#x3D;&quot;1.8&quot; gradientUnits&#x3D;&quot;userSpaceOnUse&quot;&gt;
+    &lt;stop stop-color&#x3D;&quot;#00DDDD&quot;/&gt;
+    &lt;stop offset&#x3D;&quot;1&quot; stop-color&#x3D;&quot;#FFB4AB&quot;/&gt;
+    &lt;/linearGradient&gt;
+    &lt;clipPath id&#x3D;&quot;clip0_92_193&quot;&gt;
+    &lt;rect width&#x3D;&quot;200.66&quot; height&#x3D;&quot;32&quot; fill&#x3D;&quot;white&quot;/&gt;
+    &lt;/clipPath&gt;
+    &lt;/defs&gt;
+    &lt;/svg&gt;
+
+
+    &lt;button mat-flat-button (click)&#x3D;&quot;logout()&quot; routerLink&#x3D;&quot;/login&quot;&gt;
+        Log Out
+    &lt;/button&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="headerLogoutContainer">  <svg class="headerLogoutLogo" width="201" height="32" viewBox="0 0 201 32" fill="none" xmlns="http://www.w3.org/2000/svg">    <g clip-path="url(#clip0_92_193)">    <path d="M0.71 0.0499866C1.09 0.229987 1.47 0.419987 1.84 0.599987C3.6 1.44999 5.35 2.30999 7.11 3.15999C9.55 4.33999 11.98 5.52999 14.42 6.70999C16.7 7.81999 18.98 8.92999 21.26 10.03C23 10.88 24.74 11.77 26.54 12.49C25.26 12.23 23.91 12.62 22.73 13.12C21.71 13.56 20.73 14.1 19.72 14.57C18.62 15.08 17.35 15.08 16.24 14.59L6.22 10.14C2.44 8.46999 0 4.67999 0 0.499987C0 0.129987 0.38 -0.110013 0.71 0.0499866Z" fill="url(#paint0_linear_92_193)"/>    <path d="M31.3 17.17L4.3 30.36L1.11 31.92C0.6 32.17 0 31.79 0 31.22V30.13C0 27.08 1.67 24.3 4.3 22.88C4.48 22.78 4.66 22.7 4.84 22.61L19.4 16L24 13.94C24.34 13.79 24.69 13.67 25.05 13.58C25.75 13.4 26.47 13.34 27.19 13.4C27.98 13.47 28.75 13.68 29.48 14.03L31.3 14.91C32.24 15.37 32.24 16.72 31.3 17.17Z" fill="url(#paint1_linear_92_193)"/>    <path d="M48.9501 21.7L47.4701 18.37L42.7301 7.83001C41.7801 5.70001 39.6701 4.32001 37.3401 4.32001H36.5601C36.1401 4.32001 35.8701 4.76001 36.0501 5.13001L46.6301 26.99C46.9501 27.67 47.9201 27.66 48.2501 26.98L48.8801 25.67C49.4801 24.42 49.5101 22.97 48.9501 21.7ZM58.5701 4.32001C55.5801 4.32001 52.8701 6.09001 51.6601 8.83001L48.4701 16.08C48.1201 16.89 48.1201 17.8 48.4801 18.6C48.8201 19.33 49.2101 20.04 49.5201 20.78C49.8901 21.64 50.1601 22.62 49.9801 23.54C50.4901 22.24 51.1401 20.98 51.7401 19.72C52.5401 18.07 53.3301 16.42 54.1201 14.77C54.9701 13 55.8201 11.24 56.6701 9.47001C57.2801 8.20001 57.8901 6.93001 58.5001 5.66001C58.6401 5.39001 58.7701 5.11001 58.9001 4.84001C59.0101 4.60001 58.8401 4.32001 58.5701 4.32001ZM166.6 4.32001V22.84C166.6 25.51 168.77 27.68 171.44 27.68V9.16001C171.44 6.49001 169.27 4.32001 166.6 4.32001ZM154.73 23V9.16001C154.73 6.49001 152.56 4.32001 149.89 4.32001V27.68H164.84V23H154.73ZM148.13 9.00001V4.32001H133.19V27.68H138.02V18.92H146.31V14.27H138.02V9.00001H148.13ZM118.98 4.01001C112.2 4.01001 106.96 9.25001 106.96 16C106.96 22.75 112.17 27.99 118.98 27.99C125.79 27.99 131.07 22.78 131.07 16C131.07 9.22001 125.76 4.01001 118.98 4.01001ZM118.98 23.22C114.96 23.22 111.92 20.14 111.92 16C111.92 11.86 114.9 8.78001 118.98 8.78001C123.06 8.78001 126.08 11.85 126.08 16C126.08 20.15 123 23.22 118.98 23.22ZM105.79 8.97001V4.32001H90.5301V27.68H105.79V23.03H95.3701V17.98H104.56V13.61H95.3701V8.97001H105.79ZM75.4501 4.32001H67.5101V27.68H75.4501C83.2001 27.68 88.3901 23 88.3901 16C88.3901 9.00001 83.2001 4.32001 75.4501 4.32001ZM76.1401 23H72.3401V9.00001H76.1401C80.4401 9.00001 83.4301 11.85 83.4301 16C83.4301 20.15 80.4401 23 76.1401 23ZM59.5901 4.32001V27.68H64.4301V9.16001C64.4301 6.49001 62.2601 4.32001 59.5901 4.32001ZM186.86 19.04L195.15 27.59H193.62C190.9 27.59 188.29 26.5 186.38 24.57L183.97 22.13L183.53 21.74L181.9 23.39C179.86 25.45 178.1 26.82 175.04 27.35C174.33 27.47 173.69 26.92 173.69 26.2C173.69 25.9 173.81 25.6 174.03 25.38L180.66 18.76L180.75 18.69L180.14 18.06L176.64 14.52H176.65C174.7 12.55 173.6 9.89001 173.6 7.12001C173.6 6.56001 174.28 6.28001 174.68 6.68001L183.6 15.71L184.2 15.09L185.23 14.05L191.46 7.81001C193.63 5.63001 196.59 4.41001 199.67 4.41001H200.66L187.6 17.5L187.38 17.72L186.45 18.68L186.86 19.04Z" fill="url(#paint2_linear_92_193)"/>    </g>    <defs>    <linearGradient id="paint0_linear_92_193" x1="13.27" y1="14.96" x2="13.27" y2="-1.3504e-05" gradientUnits="userSpaceOnUse">    <stop stop-color="#FFB4AB"/>    <stop offset="1" stop-color="#00DDDD"/>    </linearGradient>    <linearGradient id="paint1_linear_92_193" x1="-0.94" y1="30" x2="30.06" y2="13.5" gradientUnits="userSpaceOnUse">    <stop stop-color="#00DDDD"/>    <stop offset="1" stop-color="#FFB4AB"/>    </linearGradient>    <linearGradient id="paint2_linear_92_193" x1="25.2801" y1="29.75" x2="208.74" y2="1.8" gradientUnits="userSpaceOnUse">    <stop stop-color="#00DDDD"/>    <stop offset="1" stop-color="#FFB4AB"/>    </linearGradient>    <clipPath id="clip0_92_193">    <rect width="200.66" height="32" fill="white"/>    </clipPath>    </defs>    </svg>    <button mat-flat-button (click)="logout()" routerLink="/login">        Log Out    </button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BoardComponent', 'selector': 'app-board'},{'name': 'BoardPlayerComponent', 'selector': 'app-board-player'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderLogoutComponent', 'selector': 'app-header-logout'},{'name': 'LegalComponent', 'selector': 'app-legal'},{'name': 'LogInComponent', 'selector': 'app-log-in'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'VideoDetailComponent', 'selector': 'app-video-detail'},{'name': 'VideoListComponent', 'selector': 'app-video-list'},{'name': 'VideoPlayerComponent', 'selector': 'app-video-player'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderLogoutComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderLogoutComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,19 @@
+vg-player {
+    width: 100%;
+    height: 50vh;
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  vg-player:hover .controlsPlayer {
+display: block;
+}
+
+.controlsPlayer {
+    display: none;
+}
+    
+

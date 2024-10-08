@@ -1,0 +1,26 @@
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.link {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.privacyContainer {
+    margin-right: 40px;
+}
+
+.legalContainer  {
+    margin-left: 40px;
+}

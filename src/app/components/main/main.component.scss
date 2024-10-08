@@ -1,0 +1,76 @@
+h2 {
+    margin-top:1.5rem;
+    font-weight: 800;
+    font-size: calc(1.175rem + 2.1vh) !important;
+    font-family: 'DMSans' !important;
+}
+
+
+.mainContainer {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    color: white !important;
+    justify-content: center;
+}
+
+
+.mainContainer::before {
+    content: "";
+    background-image: url('../../../assets/img/background_animals.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(4px);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
+.mainHeadline {
+width: 100%;
+display: flex;
+justify-content: center;
+text-align: center;
+padding-left: 16px;
+padding-right: 16px;
+}
+
+
+.mainSmallHeadline {
+width: 100%;
+display: flex;
+justify-content: center;
+text-align: center;
+margin-bottom: 32px;
+padding-left: 16px;
+padding-right: 16px;
+}
+
+.mainEmailSignupButton {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.mainSVGButton {
+padding-left: 8px;
+}
+
+
+.custom-button {
+    display: flex;
+    color: #ffffff;
+    margin-left: 4px;
+}
+
