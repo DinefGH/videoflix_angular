@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PasswordResetService {
-  private backendUrl = 'http://127.0.0.1:8000';
-  private apiUrl = 'http://127.0.0.1:8000/reset-password/';
+  private backendUrl = 'https://videoflix.server.fabianduerr.com';
+  private apiUrl = 'https://videoflix.server.fabianduerr.com/reset-password/';
 
 
   /**

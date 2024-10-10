@@ -13,6 +13,9 @@ import { VgApiService } from '@videogular/ngx-videogular/core';
 import { BitrateOptions } from '@videogular/ngx-videogular/core/lib/interfaces/bitrate-options.interface';
 import { VideoService} from 'src/app/services/video.service';
 import { FooterComponent } from "../footer/footer.component";
+import { OnDestroy } from '@angular/core';
+import { NavigationStart } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 
@@ -36,17 +39,19 @@ import { FooterComponent } from "../footer/footer.component";
   templateUrl: './video-detail.component.html',
   styleUrls: ['./video-detail.component.scss'],
 })
-export class VideoDetailComponent implements OnInit {
+export class VideoDetailComponent implements OnInit, OnDestroy  {
 
     /** Reference to the HTML video element used for video playback */
   @ViewChild('media', { static: false }) mediaElementRef!: ElementRef<HTMLVideoElement>;
 
   /** API service for controlling video playback */
   vgApi!: VgApiService;
+  
 
   /** The currently selected video source URL */
   videoSource: string = ''; 
 
+  private routerEventsSubscription!: Subscription;
   
 
   /** Available bitrate options for the video, including resolution and bitrate */
@@ -119,7 +124,14 @@ export class VideoDetailComponent implements OnInit {
         this.router.navigate(['/video-list']);
       }
     );
+    
+    this.routerEventsSubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.saveCurrentTime();
+      }
+    });
   }
+  
 
 
 
@@ -171,6 +183,16 @@ export class VideoDetailComponent implements OnInit {
    */
   onPlayerReady(api: VgApiService) {
     this.vgApi = api;
+    const videoId = this.video.id;
+  const savedTime = localStorage.getItem(`video-${videoId}-currentTime`);
+
+  if (savedTime) {
+    const time = parseFloat(savedTime);
+    // Seek to the saved time once the video metadata is loaded
+    this.vgApi.getDefaultMedia().subscriptions.loadedMetadata.subscribe(() => {
+      this.vgApi.seekTime(time, false);
+    });
+  }
   }
 
 
@@ -178,6 +200,34 @@ export class VideoDetailComponent implements OnInit {
    * Navigates back to the video list.
    */
   goBack(): void {
+    if (this.video && this.vgApi) {
+      this.saveCurrentTime();
+    }
     this.router.navigate(['video-list/']);
+  }
+
+  private saveCurrentTime(): void {
+    if (this.vgApi && this.video) {
+      const currentTime = this.vgApi.currentTime;
+      const videoId = this.video.id;
+  
+      if (currentTime !== undefined && videoId !== undefined) {
+        localStorage.setItem(`video-${videoId}-currentTime`, currentTime.toString());
+      } else {
+        console.warn('currentTime or videoId is undefined. Skipping save.');
+      }
+    } else {
+      console.warn('vgApi or video is undefined. Skipping save.');
+    }
+  }
+
+
+  ngOnDestroy(): void {
+    this.saveCurrentTime();
+  
+    // Unsubscribe from router events to prevent memory leaks
+    if (this.routerEventsSubscription) {
+      this.routerEventsSubscription.unsubscribe();
+    }
   }
 }
