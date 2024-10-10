@@ -41,7 +41,7 @@ export interface CategoryGroup {
   providedIn: 'root',
 })
 export class CategoryService {
-  private apiUrl = 'https://videoflix.server.fabianduerr.com/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
 
   constructor(private http: HttpClient) {}
 

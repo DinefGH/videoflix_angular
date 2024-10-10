@@ -14,7 +14,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class LoginService {
 
-  private apiUrl = 'https://videoflix.server.fabianduerr.com';  
+  private apiUrl = 'http://127.0.0.1:8000';  
 
   constructor(private http: HttpClient) {}
 

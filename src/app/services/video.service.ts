@@ -31,7 +31,7 @@ export interface Video {
   providedIn: 'root',
 })
 export class VideoService {
-  private apiUrl = 'https://videoflix.server.fabianduerr.com/api/videos/'; 
+  private apiUrl = 'http://127.0.0.1:8000/api/videos/'; 
 
   constructor(private http: HttpClient) {}
 

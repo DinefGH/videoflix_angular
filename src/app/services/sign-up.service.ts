@@ -13,7 +13,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class SignUpService {
 
-  private apiUrl = 'https://videoflix.server.fabianduerr.com/register/';
+  private apiUrl = 'http://127.0.0.1:8000/register/';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CsrfService {
-  private csrfTokenUrl = 'https://videoflix.server.fabianduerr.com/csrf/'; 
+  private csrfTokenUrl = 'http://127.0.0.1:8000/csrf/'; 
 
   constructor(private http: HttpClient) {}
 
